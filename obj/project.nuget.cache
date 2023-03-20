@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xk4dRURrX0UgHPhjIPsRWr2qAKJJinDFwV7pT71KzdpkPM0Z6tj5TzOk6FMwxVFXOFgxqVBS64+YeQrpCTrepQ==",
+  "dgSpecHash": "thu+rY7pQ+1aAF1Rsq+wUO3rfgrB/J0USz+qYvSxj5QxqFqjXoRuPnXD9kSuIH/KvrYFWV2vDUdXXC+nBBH7Wg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MAZA12436\\Downloads\\repo\\PlaywrightDemo\\PlaywrightDemo\\PlaywrightDemo.csproj",
+  "projectFilePath": "C:\\Users\\MAZA12436\\Downloads\\repo\\PlaywrightDemo\\PlaywrightDemo\\Playwrightdotnet\\PlaywrightDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MAZA12436\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\MAZA12436\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

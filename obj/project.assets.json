@@ -4692,11 +4692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MAZA12436\\Downloads\\repo\\PlaywrightDemo\\PlaywrightDemo\\PlaywrightDemo.csproj",
+      "projectUniqueName": "C:\\Users\\MAZA12436\\Downloads\\repo\\PlaywrightDemo\\PlaywrightDemo\\Playwrightdotnet\\PlaywrightDemo.csproj",
       "projectName": "PlaywrightDemo",
-      "projectPath": "C:\\Users\\MAZA12436\\Downloads\\repo\\PlaywrightDemo\\PlaywrightDemo\\PlaywrightDemo.csproj",
+      "projectPath": "C:\\Users\\MAZA12436\\Downloads\\repo\\PlaywrightDemo\\PlaywrightDemo\\Playwrightdotnet\\PlaywrightDemo.csproj",
       "packagesPath": "C:\\Users\\MAZA12436\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MAZA12436\\Downloads\\repo\\PlaywrightDemo\\PlaywrightDemo\\obj\\",
+      "outputPath": "C:\\Users\\MAZA12436\\Downloads\\repo\\PlaywrightDemo\\PlaywrightDemo\\Playwrightdotnet\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

@@ -11,7 +11,7 @@ public class Tests
     }
 
     [Test]
-    public async Task Test1()
+    public async Task Test2()
     {
         //Playwright
         using var playwright = await Playwright.CreateAsync();
@@ -30,7 +30,23 @@ public class Tests
         {
             Path = "EAApp.jpg"
         });
+        await page.FillAsync("#UserName", "admin");       
+        await page.ScreenshotAsync(new PageScreenshotOptions
+        {
+            Path = "EAAppLogin.jpg"
+        });
+        await page.FillAsync("#Password", "password");        
+        await page.ScreenshotAsync(new PageScreenshotOptions
+        {
+            Path = "EAAppPass.jpg"
+        });
+        await page.ClickAsync("text=Log in");
+        await page.ScreenshotAsync(new PageScreenshotOptions
+        {
+            Path = "EAAppClick.jpg"
+        });
+        var isExist = await page.Locator("text='Employee Details'").IsVisibleAsync();
 
-
+        Assert.IsTrue(isExist);
     }
 }
