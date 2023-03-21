@@ -12,28 +12,20 @@ public class NunitPlaywright : Microsoft.Playwright.NUnit.PageTest
     }
 
     [Test]
-    public async Task Test1()
+    public async Task LoginTest()
     {
-        await Page.ClickAsync("text=Login");
-        await Page.ScreenshotAsync(new PageScreenshotOptions
-        {
-            Path = "EAApp.jpg"
-        });
+        //await Page.ClickAsync("text=Login");
+        //Page.SetDefaultTimeout(10);
+        
+        var lnkLogin = Page.Locator("text=Login");
+        await lnkLogin.ClickAsync();
+
         await Page.FillAsync("#UserName", "admin");       
-        await Page.ScreenshotAsync(new PageScreenshotOptions
-        {
-            Path = "EAAppLogin.jpg"
-        });
         await Page.FillAsync("#Password", "password");        
-        await Page.ScreenshotAsync(new PageScreenshotOptions
-        {
-            Path = "EAAppPass.jpg"
-        });
-        await Page.ClickAsync("text=Log in");
-        await Page.ScreenshotAsync(new PageScreenshotOptions
-        {
-            Path = "EAAppClick.jpg"
-        });
+        //await Page.ClickAsync("text=Log in");
+        var btnLogin = Page.Locator("input", new PageLocatorOptions { HasTextString = "Log in"});
+        await btnLogin.ClickAsync();
+
         await Expect(Page.Locator("text='Employee Details'")).ToBeVisibleAsync();
     }
 }

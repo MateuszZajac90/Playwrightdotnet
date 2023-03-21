@@ -1,5 +1,6 @@
 using Microsoft.Playwright;
 using NUnit.Framework;
+using PlaywrightDemo.Pages;
 
 namespace PlaywrightDemo;
 
@@ -47,6 +48,64 @@ public class Tests
         });
         var isExist = await page.Locator("text='Employee Details'").IsVisibleAsync();
 
+        Assert.IsTrue(isExist);
+    }
+    
+    [Test]
+    public async Task Test3WithPOM()
+    {
+        //Playwright
+        using var playwright = await Playwright.CreateAsync();
+
+        //Browser 
+        await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+        {
+            Headless = false
+        });
+
+        //Page
+        var page = await browser.NewPageAsync(); 
+        await page.GotoAsync("http://www.eaapp.somee.com");
+        
+        var loginPage = new LoginPageUpgraded(page);
+        
+        await loginPage.ClickLogin();
+        await loginPage.Login("admin", "password");
+        var isExist = await loginPage.IsEmployeeDetailsExsists();
+        Assert.IsTrue(isExist);
+    }
+
+    [Test]
+    public async Task Test4Network()
+    {
+        //Playwright
+        using var playwright = await Playwright.CreateAsync();
+
+        //Browser 
+        await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+        {
+            Headless = false
+        });
+
+        //Page
+        var page = await browser.NewPageAsync(); 
+        await page.GotoAsync("http://www.eaapp.somee.com");
+        
+        var loginPage = new LoginPageUpgraded(page);
+        
+        await loginPage.ClickLogin();
+
+        var waitResponse = page.WaitForResponseAsync("**/Employee");
+        await loginPage.ClickEmployeeList();
+        var getResponse = await waitResponse;
+
+        var response = await page.RunAndWaitForResponseAsync(async () => 
+        {
+            await loginPage.ClickEmployeeList();
+        }, x => x.Url.Contains("/Employee") && x.Status==200);
+
+        await loginPage.Login("admin", "password");
+        var isExist = await loginPage.IsEmployeeDetailsExsists();
         Assert.IsTrue(isExist);
     }
 }
