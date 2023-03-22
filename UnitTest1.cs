@@ -95,14 +95,16 @@ public class Tests
         
         await loginPage.ClickLogin();
 
-        var waitResponse = page.WaitForResponseAsync("**/Employee");
-        await loginPage.ClickEmployeeList();
-        var getResponse = await waitResponse;
+        // Wait for response - way 1
+        // var waitResponse = page.WaitForResponseAsync("**/Employee");
+        // await loginPage.ClickEmployeeList();
+        // var getResponse = await waitResponse;
 
+        // Wait for response - way 2
         var response = await page.RunAndWaitForResponseAsync(async () => 
         {
             await loginPage.ClickEmployeeList();
-        }, x => x.Url.Contains("/Employee") && x.Status==200);
+        }, x => x.Url.Contains("/Employee") && x.Status == 200);
 
         await loginPage.Login("admin", "password");
         var isExist = await loginPage.IsEmployeeDetailsExsists();
